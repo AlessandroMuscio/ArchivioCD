@@ -1,27 +1,39 @@
-import java.util.ArrayList;
-
 public class App {
   public static void main(String[] args) throws Exception {
-    Brano brano0 = new Brano("titolo0", "1:20");
-    Brano brano1 = new Brano("titolo1", "1:20");
-    Brano brano2 = new Brano("titolo2", "1:20");
-    Brano brano3 = new Brano("titolo3", "1:20");
+    ProgramMenu menu;
+    int scelta;
 
-    ArrayList<Brano> brani = new ArrayList<Brano>();
-    brani.add(brano0);
-    brani.add(brano1);
-    brani.add(brano2);
-    brani.add(brano3);
+    System.out.println("Benvenuto nel programma per la gestione del tuo ArchivioCD");
 
-    CD cd0 = new CD("titoloCD0", "Gianni", brani);
-    CD cd1 = new CD("titoloCD1", "Gianni", brani);
+    menu = new ProgramMenu("Gestione ArchivioCD", new String[] { "Inserisci cd nell'archivio", "Visualizza cd",
+        "Rimuovi cd", "Visualizza l'intera collezione", "Seleziona un brano casuale" });
 
-    ArrayList<CD> lista_cd = new ArrayList<CD>();
-    lista_cd.add(cd0);
-    lista_cd.add(cd1);
+    do {
+      scelta = menu.scegli();
 
-    ArchivioCD archivioCD = new ArchivioCD(lista_cd);
+      switch (scelta) {
+        case 1:
+          menu.aggiungiCDallArchivio();
+          break;
 
-    System.out.println(archivioCD);
+        case 2:
+          menu.visualizzaOrimuoviCD(false);
+          break;
+
+        case 3:
+          menu.visualizzaOrimuoviCD(true);
+          break;
+
+        case 4:
+          menu.visualizzaArchivioCD();
+          break;
+
+        case 5:
+          menu.getBranoCasuale();
+          break;
+      }
+    } while (scelta != 0);
+
+    System.out.println("Grazie per aver utilizzato il programma ArchivioCD!\nA presto");
   }
 }

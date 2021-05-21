@@ -91,12 +91,18 @@ public class CD {
 
     for (int i = 0; i < brani.size(); i++) {
       Brano brano_corrente = brani.get(i);
-      if (i != (brani.size() - 1))
-        cd_to_string += String.format("Brano: [\n\t\t\tTitolo: %s,\n\t\t\tDurata: %d\n\t\t],\n\t\t",
-            brano_corrente.getTitolo(), brano_corrente.getDurata());
+
+      cd_to_string += String.format("Brano: [\n\t\t\tTitolo: %s,\n\t\t\t", brano_corrente.getTitolo());
+      if (brano_corrente.getDurata() > (Brano.getSecondiInUnMinuto() - 1))
+        cd_to_string += String.format("Durata: %s\n\t\t]",
+            brano_corrente.durataInMinutiESecondi(brano_corrente.getDurata()));
       else
-        cd_to_string += String.format("Brano: [\n\t\t\tTitolo: %s,\n\t\t\tDurata: %d\n\t\t]\n\t",
-            brano_corrente.getTitolo(), brano_corrente.getDurata());
+        cd_to_string += String.format("Durata: %ds\n\t\t]", brano_corrente.getDurata());
+
+      if (i != (brani.size() - 1))
+        cd_to_string += ",\n\t\t";
+      else
+        cd_to_string += "\n\t";
     }
     cd_to_string += "]\n]";
 

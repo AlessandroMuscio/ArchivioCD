@@ -18,7 +18,7 @@ public class InputDati {
    */
   private static Scanner lettore = creaScanner();
 
-  private final static String CARATTERI_ALFANUMERICI = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  private final static String CARATTERI_ALFANUMERICI = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
   private final static String ERRORE_CARATTERI_ALFANUMERICI = "ATTENZIONE: sono accettati solo caratteri alfanumerici";
   private final static String ERRORE_STRINGA_VUOTA = "ATTENZIONE: non hai inserito alcun carattere";
   private final static String MESSAGGIO_AMMISSIBILI = "ATTENZIONE: i caratteri ammissibili sono: ";
@@ -374,7 +374,7 @@ public class InputDati {
    *         negativa dell'utente
    */
   public static boolean leggiSiONo(String domanda) {
-    domanda = domanda + "(" + RISPOSTA_SI.charAt(1) + "/" + RISPOSTA_NO.charAt(0) + ")? ";
+    domanda = domanda + "? [" + RISPOSTA_SI.charAt(1) + "/" + RISPOSTA_NO.charAt(0) + "] ";
     char valoreLetto = leggiChar(domanda, String.valueOf(RISPOSTA_SI) + String.valueOf(RISPOSTA_NO));
 
     if (RISPOSTA_SI.indexOf(valoreLetto) != -1)

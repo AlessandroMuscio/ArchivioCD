@@ -31,7 +31,7 @@ public class Menu {
    * @param voci   Indica le voci del menu
    */
   public Menu(String titolo, String[] voci) {
-    this.titolo = "\n" + titolo;
+    this.titolo = titolo;
     this.voci = voci;
   }
 
