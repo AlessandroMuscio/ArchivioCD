@@ -1,3 +1,5 @@
+package muscioalessandro.archiviocd;
+
 import java.util.ArrayList;
 
 import it.unibs.fp.mylib.EstrazioniCasuali;
@@ -34,24 +36,8 @@ public class ArchivioCD {
     return null;
   }
 
-  public void visualizzaCD(String titolo) {
-    CD cd_da_visualizzare = cercaCDperTitolo(titolo);
-
-    if (cd_da_visualizzare == null)
-      System.out.println(String.format("Impossibile trovare un cd con titolo \"%s\"", titolo));
-    else
-      System.out.println(cd_da_visualizzare);
-  }
-
-  public boolean rimuoviCD(String titolo) {
-    CD cd_da_eliminare = cercaCDperTitolo(titolo);
-
-    if (cd_da_eliminare == null) {
-      System.out.println(String.format("Impossibile trovare un cd con titolo \"%s\"", titolo));
-      return false;
-    } else {
-      return lista_cd.remove(cd_da_eliminare);
-    }
+  public boolean rimuoviCD(CD cd) {
+      return lista_cd.remove(cd);
   }
 
   public CD getCDCasuale() {
@@ -90,8 +76,9 @@ public class ArchivioCD {
       if (i != (lista_cd.size() - 1))
         archivio_cd_to_string += "]\n\t],\n\t";
       else
-        archivio_cd_to_string += "]\n\t]\n]";
+        archivio_cd_to_string += "]\n\t]\n";
     }
+    archivio_cd_to_string += "]";
 
     return archivio_cd_to_string;
   }

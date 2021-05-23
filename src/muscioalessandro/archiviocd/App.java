@@ -1,12 +1,13 @@
+package muscioalessandro.archiviocd;
+
 public class App {
   public static void main(String[] args) throws Exception {
     ProgramMenu menu;
     int scelta;
 
-    System.out.println("Benvenuto nel programma per la gestione del tuo ArchivioCD");
+    System.out.println(OutputStringhe.MSG_BENVENUTO);
 
-    menu = new ProgramMenu("Gestione ArchivioCD", new String[] { "Inserisci cd nell'archivio", "Visualizza cd",
-        "Rimuovi cd", "Visualizza l'intera collezione", "Seleziona un brano casuale" });
+    menu = new ProgramMenu(OutputStringhe.TITOLO_MENU, OutputStringhe.VOCI_MENU);
 
     do {
       scelta = menu.scegli();
@@ -17,11 +18,11 @@ public class App {
           break;
 
         case 2:
-          menu.visualizzaOrimuoviCD(false);
+          menu.visualizzaCD();
           break;
 
         case 3:
-          menu.visualizzaOrimuoviCD(true);
+          menu.rimuoviCD();
           break;
 
         case 4:
@@ -34,6 +35,6 @@ public class App {
       }
     } while (scelta != 0);
 
-    System.out.println("Grazie per aver utilizzato il programma ArchivioCD!\nA presto");
+    System.out.println(OutputStringhe.MSG_ARRIVEDERCI);
   }
 }
