@@ -32,6 +32,10 @@ public class App {
         case 5:
           menu.getBranoCasuale();
           break;
+
+        case 6:
+          menu.getListaBraniCasuale();
+          break;
       }
     } while (scelta != 0);
 

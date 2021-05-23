@@ -36,8 +36,28 @@ public class ArchivioCD {
     return null;
   }
 
+  public CD cercaCDperAutore(String autore) {
+    for (CD cd : lista_cd) {
+      if (autore.equals(cd.getAutore()))
+        return cd;
+    }
+
+    return null;
+  }
+
+  public CD cercaCDperTitoloBranoContenuto(String titolo_brano) {
+    for(CD cd : lista_cd) {
+      for(Brano brano : cd.getBrani()) {
+        if(titolo_brano.equals(brano.getTitolo()))
+          return cd;
+      }
+    }
+
+    return null;
+  }
+
   public boolean rimuoviCD(CD cd) {
-      return lista_cd.remove(cd);
+    return lista_cd.remove(cd);
   }
 
   public CD getCDCasuale() {
