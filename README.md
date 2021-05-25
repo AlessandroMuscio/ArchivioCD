@@ -1,6 +1,6 @@
 ## ArchivioCD
 
-Esercizio ArchivioCD svolto da ALessandro Muscio
+Esercizio ArchivioCD svolto da Alessandro Muscio, [consegna](.github/consegna.pdf)
 
 ## Librerie
 
